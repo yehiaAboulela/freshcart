@@ -1,0 +1,38 @@
+:root {
+  --main-color: #4fa74f;
+}
+
+.color-main {
+  color: var(--main-color);
+}
+.bg-main {
+  background-color: var(--main-color);
+}
+.active-nav {
+  color: black;
+  font-weight: 500;
+}
+.product {
+  border-radius: 10px;
+  transition: box-shadow 0.3s;
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+.product:hover {
+  box-shadow: 0px 0px 10px var(--main-color);
+}
+.my-btn {
+  transform: translateX(-200%);
+  transition: 0.4s;
+}
+.product:hover .my-btn {
+  transform: translateX(0);
+}
+.fav-heart {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.fav-heart:hover {
+  text-shadow: 0px 0px 10px var(--main-color);
+}

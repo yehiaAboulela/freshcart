@@ -1,0 +1,47 @@
+<section class="my-5">
+  <input
+    type="search"
+    class="form-control w-50 mx-auto mb-5"
+    placeholder="search..."
+    [(ngModel)]="searchTerm"
+  />
+  <div class="row g-4">
+    <div
+      class="col-sm-6 col-lg-4 col-xl-3 py-3"
+      *ngFor="let product of products | search : searchTerm"
+    >
+      <div class="product pb-2">
+        <div class="px-3" (click)="goToProductDetails(product._id)">
+          <img [src]="product.imageCover" [alt]="product.title" class="w-100" />
+
+          <h2 class="h4 color-main">{{ product.category.name }}</h2>
+
+          <h3 class="h6">
+            {{ product.title | minifiedText }}
+          </h3>
+          <div class="d-flex align-items-center justify-content-between">
+            <span>{{ product.price | currency }}</span>
+            <p class="m-0">
+              <i class="fa fa-star color-main"></i>{{ product.ratingsAverage }}
+            </p>
+          </div>
+        </div>
+        <div class="px-3 d-flex align-items-center justify-content-between">
+          <button
+            class="btn btn-outline-success my-1 mt-2 my-btn"
+            (click)="addToCart(product._id)"
+          >
+            Add to cart
+          </button>
+          <i
+            class="fa fa-heart fs-3 fav-heart"
+            (click)="addToWishList(product._id)"
+            [ngClass]="{
+              'color-main': userWishList.includes(product._id)
+            }"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

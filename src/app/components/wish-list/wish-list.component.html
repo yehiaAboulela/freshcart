@@ -1,0 +1,40 @@
+<section class="my-5">
+  <div
+    class="bg-light rounded shadow p-5"
+    *ngIf="wishListProducts.length > 0; else emptyWishlist"
+  >
+    <h1>My Wish List</h1>
+    <div class="row p-2 border" *ngFor="let product of wishListProducts">
+      <div class="col-md-2">
+        <img class="w-100" [src]="product.imageCover" [alt]="product.title" />
+      </div>
+      <div
+        class="col-md-10 d-flex justify-content-between align-items-center px-3"
+      >
+        <div>
+          <h2 class="h4">
+            {{ product.title | minifiedText }}
+          </h2>
+          <h3 class="h5 color-main">{{ product.price | currency }}</h3>
+          <button class="btn px-0" (click)="removeItem(product._id)">
+            <i class="fa-regular fa-trash-can"></i>
+            Remove
+          </button>
+        </div>
+        <div>
+          <button
+            class="btn btn-outline-success"
+            (click)="addToCart(product._id)"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #emptyWishlist>
+  <h1 class="text-center p-5 bg-light rounded shadow">
+    Your wish list is empty
+  </h1>
+</ng-template>

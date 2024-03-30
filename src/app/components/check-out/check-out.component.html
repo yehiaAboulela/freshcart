@@ -1,0 +1,67 @@
+<section>
+  <form action="" [formGroup]="checkOutForm">
+    <div class="my-3">
+      <label for="details">details</label>
+      <input
+        type="text"
+        id="details"
+        class="form-control"
+        formControlName="details"
+        #details
+      />
+      <div
+        *ngIf="
+          checkOutForm.get('details')?.errors &&
+          (checkOutForm.get('details')?.touched || details.value.length > 0)
+        "
+      >
+        <p class="text-muted">feild cant be empty, min length is 3</p>
+      </div>
+    </div>
+    <div class="my-3">
+      <label for="phone">phone</label>
+      <input
+        type="text"
+        id="phone"
+        class="form-control"
+        formControlName="phone"
+        #phone
+      />
+      <div
+        *ngIf="
+          checkOutForm.get('phone')?.errors &&
+          (checkOutForm.get('phone')?.touched || phone.value.length > 0)
+        "
+      >
+        <p class="text-muted">phone number should be valid</p>
+      </div>
+    </div>
+    <div class="my-3">
+      <label for="city">city</label>
+      <input
+        type="text"
+        id="city"
+        class="form-control"
+        formControlName="city"
+        #city
+      />
+      <div
+        *ngIf="
+          checkOutForm.get('city')?.errors &&
+          (checkOutForm.get('city')?.touched || city.value.length > 0)
+        "
+      >
+        <p class="text-muted">feild is required</p>
+      </div>
+    </div>
+    <div class="my-5">
+      <button
+        class="btn btn-outline-primary w-100"
+        (click)="handleCheckOut()"
+        [disabled]="checkOutForm.status != 'VALID'"
+      >
+        Pay now
+      </button>
+    </div>
+  </form>
+</section>

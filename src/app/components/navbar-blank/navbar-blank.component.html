@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light shadow">
+  <div class="container">
+    <a class="navbar-brand fs-2" routerLink="home">
+      <i class="fa fa-shopping-cart color-main"></i>
+      <span class="fw-bold"> fresh cart</span>
+    </a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" routerLinkActive="text-black"
+            >home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cart" routerLinkActive="text-black"
+            >cart</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="wishlist"
+            routerLinkActive="text-black"
+            >wishList</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="products"
+            routerLinkActive="text-black"
+            >products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="categories"
+            routerLinkActive="text-black"
+            >categories</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="brands" routerLinkActive="text-black"
+            >brands</a
+          >
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <div class="cart-icon" role="button" routerLink="cart">
+          <i class="fa fa-shopping-cart fs-3"></i>
+          <span class="bg-main text-white">{{ numCartItems }}</span>
+        </div>
+        <button class="btn ms-md-1 btn-lg" (click)="handleLogout()">
+          logout
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,52 @@
+<section class="bg-main-light p-4 rounded my-3 w-75 m-auto">
+  <h1 class="h2">login Now :</h1>
+
+  <form [formGroup]="registerForm" (ngSubmit)="handleForm()">
+    <div class="mb-3">
+      <label for="email">email:</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+        #emailInput
+      />
+      <div
+        *ngIf="
+          registerForm.get('email')?.errors &&
+          (registerForm.get('email')?.touched || emailInput.value.length > 0)
+        "
+      >
+        <p class="text-muted mt-2">
+          feild cant be empty, email should be valid
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password">password:</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+        #passwordInput
+      />
+      <div
+        *ngIf="
+          registerForm.get('password')?.errors &&
+          (registerForm.get('password')?.touched ||
+            passwordInput.value.length > 0)
+        "
+      >
+        <p class="text-muted mt-2">
+          password must start with capital letter this 6-10 chars
+        </p>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-secondary">
+      <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i> login
+    </button>
+    <p *ngIf="msgError">{{ msgError }}</p>
+  </form>
+</section>
